@@ -79,5 +79,10 @@ body {
 }
 
 hr {
-  border: 5px solid darkblue;
+	border: 5px solid darkblue;
+}
+
+audio {
+	width: 0;
+	height: 0;
 }
