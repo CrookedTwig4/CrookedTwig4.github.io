@@ -1,4 +1,3 @@
-
 html {
 	text-align: justify;
 	background-color: lightSteelBlue;
@@ -7,7 +6,7 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	border: 25px solid darkblue;
+	border: 15px solid darkblue;
 }
 
 .AlignCenter    { text-align: center; }
@@ -75,9 +74,13 @@ body {
 .darkSteel      { color: steelblue;}
 
 .Title {
-	font-size: 500%;
+	font-size: 10vi;
 	text-align: center;
+	padding: 10vh 0;
 	margin: 0;
+	position: sticky;
+	font-weight: 100vw;
+	font-variant: small-caps
 }
 
 hr {
@@ -92,8 +95,9 @@ audio {
 .NavigationBar {
 	font-size: 250%;
 	position: sticky;
-	top: 0px;
+	top: 0;
 	width: 100%;
+	z-index: 9;
 	color: darkblue;
 	background-color: lightsteelblue;
 }
