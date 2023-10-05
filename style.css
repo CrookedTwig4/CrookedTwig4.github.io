@@ -92,8 +92,12 @@ audio {
 .NavigationBar {
 	font-size: 250%;
 	position: sticky;
-	top: 25px;
+	top: 0px;
 	width: 100%;
-	color: #00008B99;
-	background-color: #00001120;
+	color: darkblue;
+	background-color: lightsteelnlue;
+}
+.NavigationBar hr{
+	margin: 0;
+	position: sticky;
 }
