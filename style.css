@@ -89,6 +89,7 @@ hr {
 
 header {
 	background-image: url("IconBackground.png");
+	background-size: cover;
 }
 
 audio {
