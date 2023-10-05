@@ -87,6 +87,10 @@ hr {
 	border: 5px solid darkblue;
 }
 
+header {
+	background-image: url("IconBackground.png");
+}
+
 audio {
 	width: 0;
 	height: 0;
