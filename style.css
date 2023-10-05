@@ -88,3 +88,8 @@ audio {
 	width: 0;
 	height: 0;
 }
+
+.NavigationBar {
+  position: sticky;
+  top: 25px;
+}
