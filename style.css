@@ -92,6 +92,10 @@ audio {
 	height: 0;
 }
 
+.SmallIconImage {
+	height: 1ex;
+}
+
 .NavigationBar {
 	font-size: 250%;
 	position: sticky;
