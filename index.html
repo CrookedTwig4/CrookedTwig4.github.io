@@ -1,36 +1,47 @@
+<!-- Your main page -->
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>CrookedTwig4's Website</title>
-		<link rel="icon" type="image/x-icon" href="https://github.com/CrookedTwig4/CrookedTwig4.github.io/blob/main/WebsiteIcon.png?raw=true">
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-		<div class="NavigationBar DarkBlue">
-			<hr class="DarkBlue">
-			<a style="text-decoration:none" href="https://crookedtwig4.github.io" class="NavigationItem">
-				<img src="WebsiteIcon.png" class="SmallIconImage">
-				<strong>C.T.4</strong>
-			</a>
-			<hr class="DarkBlue">
-		</div>
-		<div>
-			<header>
-				<h1 class="Title DarkBlue">CrookedTwig4</h1>
-				<hr class="DarkBlue">
-			</header>
-			<p>qwieufqwieufhqiweufhqiweufhqiweufhiqwuefhiqwuefh</p>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<hr class="DarkBlue">
-			<footer class="Footer">
-				<a href="AboutMe.html">About Me</a>
-			</footer>
-		</div>
-		<audio autoplay loop>
-			<source src="Pizzatron3000.mp3" type="audio/mpeg">
-		<audio controls>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <button id="login" onclick="openLoginWindow();">Login</button>
+        </nav>
+    </header>
+
+    <!-- Display login information here -->
+    <div id="loginDetails">
+        <h2>Login Details</h2>
+        <p id="usernameDisplay"></p>
+        <p id="passwordDisplay"></p>
+    </div>
+
+    <!-- Your existing content -->
+
+    <footer>
+        &copy; 2023 Your Awesome Website. All rights reserved.
+    </footer>
+
+    <script>
+        function openLoginWindow() {
+            // Open the login window
+            var loginWindow = window.open('login.html', 'Login', 'width=400,height=300');
+            
+            // Listen for messages from the login window
+            window.addEventListener('message', function(event) {
+                // Handle the received login information
+                var username = event.data.username;
+                var password = event.data.password;
+
+                // Display the login information on the main page
+                document.getElementById('usernameDisplay').textContent = 'Username: ' + username;
+                document.getElementById('passwordDisplay').textContent = 'Password: ' + password;
+            });
+        }
+    </script>
+</body>
 </html>

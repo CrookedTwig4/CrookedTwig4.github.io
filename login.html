@@ -1,0 +1,44 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="button" onclick="submitLogin()">Login</button>
+    </form>
+
+    <script>
+        function submitLogin() {
+            // Get the entered username and password
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Send the login information to the main window
+            const jsonString = process.env.LOGIN_CREDENTIALS; // Replace with your GitHub secret variable
+
+            // Parse the JSON string into a JavaScript array
+            const usernamesPasswordsArray = JSON.parse(jsonString);
+
+            // Check if the input matches any entry in the array
+            const matchFound = usernamesPasswordsArray.some(entry => entry.username === username && entry.password === password);
+
+            if (matchFound) {
+                window.opener.postMessage({ username, password }, '*');
+            } else {
+                window.alert("no.");
+            }
+        }
+
+    </script>
+</body>
+</html>
