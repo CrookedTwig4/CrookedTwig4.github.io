@@ -1,47 +1,43 @@
-<!-- Your main page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <button id="login" onclick="openLoginWindow();">Login</button>
-        </nav>
-    </header>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-    <!-- Display login information here -->
-    <div id="loginDetails">
-        <h2>Login Details</h2>
-        <p id="usernameDisplay"></p>
-        <p id="passwordDisplay"></p>
-    </div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-    <!-- Your existing content -->
+    <button type="submit">Login</button>
+  </form>
 
-    <footer>
-        &copy; 2023 Your Awesome Website. All rights reserved.
-    </footer>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
 
-    <script>
-        function openLoginWindow() {
-            // Open the login window
-            var loginWindow = window.open('login.html', 'Login', 'width=400,height=300');
-            
-            // Listen for messages from the login window
-            window.addEventListener('message', function(event) {
-                // Handle the received login information
-                var username = event.data.username;
-                var password = event.data.password;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-                // Display the login information on the main page
-                document.getElementById('usernameDisplay').textContent = 'Username: ' + username;
-                document.getElementById('passwordDisplay').textContent = 'Password: ' + password;
-            });
-        }
-    </script>
+      // Simulate server-side authentication logic
+      const isValidCredentials = username === 'user' && password === 'password';
+
+      if (isValidCredentials) {
+        // Set a cookie to indicate that the user is authenticated
+        document.cookie = 'isAuthenticated=true';
+
+        // Redirect to the dashboard or perform other actions
+        window.location.href = '/dashboard.html';
+      } else {
+        // Display an error message
+        alert('Invalid credentials');
+      }
+    });
+  </script>
 </body>
 </html>
