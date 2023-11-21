@@ -18,6 +18,15 @@
   </form>
 
   <script>
+    function checklogin(username, password) {
+      const jsonString = process.env.LOGIN_CREDENTIALS; // Replace with your GitHub secret variable
+
+      // Parse the JSON string into a JavaScript array
+      const usernamesPasswordsArray = JSON.parse(jsonString);
+      
+      return usernamesPasswordsArray.some(entry => entry.username === username && entry.password === password);
+    }
+
     document.getElementById('loginForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
@@ -25,7 +34,7 @@
       const password = document.getElementById('password').value;
 
       // Simulate server-side authentication logic
-      const isValidCredentials = username === 'user' && password === 'password';
+      const isValidCredentials = checklogin(username, password);
 
       if (isValidCredentials) {
         // Set a cookie to indicate that the user is authenticated
