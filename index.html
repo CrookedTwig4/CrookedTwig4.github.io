@@ -26,7 +26,9 @@
       const secret = secrets.LOGIN_CREDENTIALS;
 
       // Check if entered credentials match any of the pairs
-      const isValidCredentials = secret.some(entry => entry.username === username && entry.password === password);
+      document.write(secret);
+      document.write(secret.length);
+      document.write(secret.username);
 
       if (isValidCredentials) {
         // Set a cookie to indicate that the user is authenticated (not secure, for educational purposes)
