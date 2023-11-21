@@ -23,11 +23,10 @@
       const password = document.getElementById('password').value;
 
       // Fetch the hardcoded secret from GitHub Actions
-      const secretString = "${{ secrets.LOGIN_CREDENTIALS }}";
-      const credentialsArray = JSON.parse(secretString);
+      const secret = secrets.LOGIN_CREDENTIALS;
 
       // Check if entered credentials match any of the pairs
-      const isValidCredentials = credentialsArray.some(entry => entry.username === username && entry.password === password);
+      const isValidCredentials = secret.some(entry => entry.username === username && entry.password === password);
 
       if (isValidCredentials) {
         // Set a cookie to indicate that the user is authenticated (not secure, for educational purposes)
