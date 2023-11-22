@@ -28,7 +28,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ffd700; /* Change color on hover */
+    color: #441177;
 }
 
 #login,
@@ -121,16 +121,22 @@ footer {
     nav a {
         color: #bbb;
     }
+	
+	
+	nav a:hover {
+		color: #663399;
+	}
 
     #login,
     #logout {
-        background-color: #331166;
+        background-color: #441177;
         color: #ddd;
     }
 
     #login:hover,
     #logout:hover {
-        background-color: #441177; /* Darker shade on hover */
+		background-color: #222;
+		color:#663399;
     }
 
     h1,
@@ -148,12 +154,12 @@ footer {
     }
 
     button {
-        background-color: #331166;
+        background-color: #441177;
         color: #ddd;
     }
 
     button:hover {
-        background-color: #441177; /* Darker shade on hover */
+        background-color: #331166;
     }
 
     footer {
