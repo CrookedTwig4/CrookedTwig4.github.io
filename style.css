@@ -30,8 +30,7 @@ nav a:hover {
     color: #ffd700; /* Change color on hover */
 }
 
-#login {
-    display: inline-block;
+#login, #logout {
     padding: 10px 20px;
     font-size: 1em;
     background-color: #ffd700;
@@ -42,9 +41,12 @@ nav a:hover {
     transition: background-color 0.3s ease;
 }
 
-#login:hover {
+#login:hover, #logout:hover {
     background-color: #e5c100; /* Darker shade on hover */
     color: #333;
+}
+#login {
+    display: inline-block;
 }
 #logout {
 	display: none;
