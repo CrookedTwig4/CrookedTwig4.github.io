@@ -28,8 +28,11 @@
                 if (checkLogin(username, password)) {
                     window.alert("Valid credentials");
                     setCookie('isAuthenticated', 'true', 1);
+                    window.alert('1');
                     setCookie('accountID', getUserId(username), 1);
+                    window.alert('2');
                     window.opener.handleLogin(username);
+                    window.alert('3');
                     self.close('');
                     window.alert('error');
                 } else {
