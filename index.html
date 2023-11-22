@@ -89,16 +89,13 @@
             }
 
             function handleLogin(username) {
-
-                setCookie('accountName', getUserName(username), 1);
-                setCookie('accountLevel', getUserLevel(username), 1);
                 readCookies();
                 var name = getUserName(username)
                 
                 alert('Logged in as ' + name);
 
-                hideElement('login');
-                showElement('logout');
+                //hideElement('login');
+                //showElement('logout');
             }
             function handleLogout() {
                 document.getElementById('login').textContent = 'Login';

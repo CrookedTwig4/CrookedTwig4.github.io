@@ -27,15 +27,11 @@
 
                 if (checkLogin(username, password)) {
                     window.alert("Valid credentials");
-                    window.alert('0');
                     setCookie('isAuthenticated', 'true', 1);
-                    window.alert('1');
                     setCookie('accountID', getUserId(username), 1);
-                    window.alert('2');
-                    window.opener.handleLogin(username);
-                    window.alert('3');
-                    self.close('');
-                    window.alert('error');
+                    setCookie('accountName', getUserName(username), 1);
+                    setCookie('accountLevel', getUserLevel(username), 1);
+                    window.close();
                 } else {
                     window.alert('Invalid credentials');
                     document.write("no");
