@@ -35,6 +35,24 @@ function checkLogin(username, password) {
     return false;
 }
 
+function getUserId(username) {
+    for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
+        if (username == logins[accountIndex].username) {
+            return logins[accountIndex].id;
+        }
+    }
+    return false;
+}
+
+function getUserName(username) {
+    for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
+        if (username == logins[accountIndex].username) {
+            return logins[accountIndex].name;
+        }
+    }
+    return false;
+}
+
 function getUserData(username, data) {
     for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
         if (username == logins[accountIndex].username) {
