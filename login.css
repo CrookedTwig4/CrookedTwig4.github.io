@@ -5,44 +5,45 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0;
-  }
+    background-color: rgb(225, 200, 255);
+    color: #663399;
+}
   
-  .container {
+.container {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+    box-shadow: 0 0 10px rgba(102,51,153, 0.75);
+}
   
-  .login-form {
+.login-form {
     max-width: 300px;
     margin: 0 auto;
-  }
+}
   
-  label {
+label {
     display: block;
     margin-bottom: 5px;
-  }
+}
   
-  input {
+input {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
-  }
+}
   
-  button {
-    background-color: #4caf50;
+button {
+    background-color: #663399;
     color: #fff;
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
-  }
+}
   
-  button:hover {
-    background-color: #45a049;
-  }
+button:hover {
+    background-color: #552288;
+}
   
