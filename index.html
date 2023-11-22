@@ -85,7 +85,11 @@
                 loginWindow = window.open("login.html", "Login", "width=500,height=400,resizable=no");
                 loginWindow.addEventListener('unload', function () {
                     if(getCookie('isAuthenticated') == 'true') {
+                        alert("yes");
                         handleLogin();
+                    }
+                    else {
+                        alert("no");
                     }
                 });
             }
