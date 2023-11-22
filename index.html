@@ -80,20 +80,23 @@
                 readCookies();
                 handleLogout();
             }
+            var loginWindow;
             function openLogin() {
-                var loginWindow = window.open("login.html", "Login", "width=500,height=400,resizable=no");
+                loginWindow = window.open("login.html", "Login", "width=500,height=400,resizable=no");
                 loginWindow.addEventListener('unload', function () {
                     alert('Popup closed. Additional code can be executed here.');
                 });
             }
 
             function handleLogin(username) {
-                readCookies();
-                var name = getUserName(username)
-                alert('Logged in as ' + name);
 
                 setCookie('accountName', getUserName(username), 1);
                 setCookie('accountLevel', getUserLevel(username), 1);
+                readCookies();
+                var name = getUserName(username)
+                
+                alert('Logged in as ' + name);
+
                 hideElement('login');
                 showElement('logout');
             }

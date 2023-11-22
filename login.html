@@ -30,7 +30,8 @@
                     setCookie('isAuthenticated', 'true', 1);
                     setCookie('accountID', getUserId(username), 1);
                     window.opener.handleLogin(username);
-                    window.close();
+                    self.close('');
+                    window.alert('error');
                 } else {
                     window.alert('Invalid credentials');
                     document.write("no");
