@@ -1,28 +1,27 @@
-
+const logins = [
+    {
+        "username": "N8theGrape", 
+        "password": "N8Codes", 
+        "name": "Nathan Gillespie", 
+        "level": "Administrator",
+        "id": 0
+    },
+    {
+        "username": "cowface25", 
+        "password": "fatcow12345", 
+        "name": "Camden Bradshaw", 
+        "level": "Superuser", 
+        "id": 1
+    },
+    {
+        "username": "Tester", 
+        "password": "Tester", 
+        "name": "Tester Account", 
+        "level": "Tester",
+        "id": 2
+    }
+];
 function getLogins() {
-    const logins = [
-        {
-            "username": "N8theGrape", 
-            "password": "N8Codes", 
-            "name": "Nathan Gillespie", 
-            "level": "Administrator",
-            "id": 0
-        },
-        {
-            "username": "Tester", 
-            "password": "Tester", 
-            "name": "Tester Account", 
-            "level": "Tester",
-            "id": 1
-        },
-        {
-            "username": "user", 
-            "password": "pass", 
-            "name": "Delete Later", 
-            "level": "Superuser", 
-            "id": 2
-        }
-    ];
     return logins;
 }
 
