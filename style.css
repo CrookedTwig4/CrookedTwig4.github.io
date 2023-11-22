@@ -30,7 +30,8 @@ nav a:hover {
     color: #ffd700; /* Change color on hover */
 }
 
-#login, #logout {
+#login {
+    display: inline-block;
     padding: 10px 20px;
     font-size: 1em;
     background-color: #ffd700;
@@ -41,15 +42,25 @@ nav a:hover {
     transition: background-color 0.3s ease;
 }
 
-#login:hover, #logout:hover {
+#logout {
+    display: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ffd700;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+#login:hover {
     background-color: #e5c100; /* Darker shade on hover */
     color: #333;
 }
-#login {
-    display: inline-block;
-}
-#logout {
-	display: none;
+
+#logout:hover {
+    background-color: #e5c100; /* Darker shade on hover */
+    color: #333;
 }
 
 h1 {
