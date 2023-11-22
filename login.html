@@ -18,6 +18,18 @@
     <button type="submit">Login</button>
   </form>
         <script>
+            function setCookie(name, value, days) {
+                var expires = '';
+
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = '; expires=' + date.toUTCString();
+                }
+
+                document.cookie = name + '=' + value + expires + '; path=/';
+            }
+
             document.getElementById('loginForm').addEventListener('submit', async function (event) {
                 event.preventDefault();
 
@@ -27,14 +39,13 @@
 
                 if (checkLogin(username, password)) {
                     document.write("yes");
-                    document.cookie = 'isAuthenticated=true';
-                    document.cookie = `accountID=${getUserId(username)}`;
+                    setCookie('isAuthenticated', 'true', (1/(24*60*2)))
+                    setCookie('accountID', getUserId(username), (1/(24*60*2)))
+                    window.close();
                 } else {
                     window.alert('Invalid credentials');
                     document.write("no");
                 }
-
-                window.close();
             });
         </script>
     </body>

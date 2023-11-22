@@ -16,7 +16,7 @@
                     <a href="#">Services</a>
                     <a href="#">Contact</a>
                 </nav>
-            <div id="login"><a href="#" onclick="openLogin();">Login</a></div>
+            <div id="login"><a href="#" onclick="fun1();">Login</a></div>
         </header>
         <h1>Welcome to CrookedTwig4</h1>
         <main>
@@ -24,11 +24,16 @@
         <footer>
         </footer>
         <script>
+            const isAuthenticated = document.cookie.includes('isAuthenticated=true');
+            const ID = document.cookie.includes('accountID=');
+            function fun1() {
+                if (!isAuthenticated) {
+                    openLogin();
+                }
+            }
             function openLogin() {
                 window.open("login.html", "Login", "width=500,height=400,resizable=no");
             }
-            const isAuthenticated = document.cookie.includes('isAuthenticated=true');
-            const ID = document.cookie.includes('accountID=');
             if (isAuthenticated) {
                 document.write("isAuthenticated=true");
             }
