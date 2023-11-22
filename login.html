@@ -30,6 +30,7 @@
                     document.write("yes");
                     setCookie('isAuthenticated', 'true', (1/(24*60*2)))
                     setCookie('accountID', getUserId(username), (1/(24*60*2)))
+                    window.opener.handleLogin(username);
                     window.close();
                 } else {
                     window.alert('Invalid credentials');
