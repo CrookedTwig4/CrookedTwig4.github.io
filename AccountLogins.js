@@ -53,10 +53,10 @@ function getUserName(username) {
     return false;
 }
 
-function getUserData(username, data) {
+function getUserLevel(username) {
     for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
         if (username == logins[accountIndex].username) {
-            return logins[accountIndex][data];
+            return logins[accountIndex].level;
         }
     }
     return false;

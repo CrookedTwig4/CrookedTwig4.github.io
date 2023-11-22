@@ -92,6 +92,8 @@
                 var name = getUserName(username)
                 alert('Logged in as ' + name);
 
+                setCookie('accountName', getUserName(username), 1);
+                setCookie('accountLevel', getUserLevel(username), 1);
                 hideElement('login');
                 showElement('logout');
             }
