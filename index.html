@@ -100,8 +100,7 @@
                 
                 alert('Logged in as ' + name);
 
-                hideElement('login');
-                showElement('logout');
+                hideLogin();
             }
             function handleLogout() {
                 document.getElementById('login').textContent = 'Login';
@@ -109,16 +108,15 @@
                 deleteCookie('accountID');
                 deleteCookie('accountName');
                 readCookies();
-                hideElement('logout');
-                showElement('login');
+                showLogin
             }
-            function hideElement(id) {
-                var element = document.getElementById(id);
-                element.style.display = 'none';
+            function hideLogin() {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('logout').style.display = 'inline-block';
             }
-            function showElement(id) {
-                var element = document.getElementById(id);
-                element.style.display = '';
+            function showLogin() {
+                document.getElementById('logout').style.display = 'none';
+                document.getElementById('login').style.display = 'inline-block';
             }
             if(getCookie('isAuthenticated') == 'true') {
                 handleLogin();
