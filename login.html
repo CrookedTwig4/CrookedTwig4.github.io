@@ -23,12 +23,15 @@
 
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
+                document.write(username + ", " + password);
 
                 if (checkLogin(username, password)) {
+                    document.write("yes");
                     document.cookie = 'isAuthenticated=true';
                     document.cookie = `accountID=${getUserId(username)}`;
                 } else {
                     window.alert('Invalid credentials');
+                    document.write("no");
                 }
 
                 window.close();
