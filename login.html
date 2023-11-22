@@ -24,15 +24,14 @@
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
-                const isValidCredentials = checkLogin(username, password);
-                if (isValidCredentials) {
-                    // Set a cookie to indicate that the user is authenticated
+                if (checkLogin(username, password)) {
                     document.cookie = 'isAuthenticated=true';
                     document.cookie = `accountID=${getUserId(username)}`;
-                    window.close();
                 } else {
                     window.alert('Invalid credentials');
                 }
+
+                window.close();
             });
         </script>
     </body>

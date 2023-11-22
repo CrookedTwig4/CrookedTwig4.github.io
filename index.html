@@ -17,8 +17,8 @@
                     <a href="#">Contact</a>
                 </nav>
             <div id="login"><a href="#" onclick="openLogin();">Login</a></div>
-            <h1>Welcome to CrookedTwig4</h1>
         </header>
+        <h1>Welcome to CrookedTwig4</h1>
         <main>
         </main>
         <footer>
@@ -28,10 +28,13 @@
                 window.open("login.html", "Login", "width=500,height=400,resizable=no");
             }
             const isAuthenticated = document.cookie.includes('isAuthenticated=true');
+            const ID = document.cookie.includes('accountID=');
             if (isAuthenticated) {
                 document.write("isAuthenticated=true");
             }
-
+            if (ID) {
+                document.write("accountID=");
+            }
         </script>
     </body>
 </html>
