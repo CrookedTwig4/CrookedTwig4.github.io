@@ -78,6 +78,7 @@
                 else {
                     deleteCookie('isAuthenticated');
                     deleteCookie('accountID');
+                    handleLogout();
                 }
             }
             function openLogin() {
@@ -89,14 +90,13 @@
 
             function handleLogin(username) {
                 alert('Logged in as ' + username);
+                document.getElementById('login').textContent = username;
                 readCookies();
-                var loginButton = document.getElementById('login');
-                // Update the content based on login status
-                if (getCookie('isAuthenticated') == 'true') {
-                    loginButton.textContent = username;
-                }
             }
-
+            function handleLogout() {
+                document.getElementById('login').textContent = 'Login';
+                readCookies();
+            }
 
             if (isAuthenticated) {
                 document.write("isAuthenticated=true");
