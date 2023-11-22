@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <script src="cookies.js"></script>
         <title>Your Website Title</title>
     </head>
     <body>
@@ -24,11 +25,15 @@
         <footer>
         </footer>
         <script>
-            const isAuthenticated = document.cookie.includes('isAuthenticated=true');
-            const ID = document.cookie.includes('accountID=');
+            const isAuthenticated = getCookie('isAuthenticated');
+            const ID = getCookie('accountID')
             function fun1() {
                 if (!isAuthenticated) {
                     openLogin();
+                }
+                else {
+                    deleteCookie('isAuthenticated');
+                    deleteCookie('accountID');
                 }
             }
             function openLogin() {
