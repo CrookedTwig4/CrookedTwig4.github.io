@@ -46,7 +46,9 @@ nav a:hover {
     background-color: #e5c100; /* Darker shade on hover */
     color: #333;
 }
-
+#logout {
+	display: none;
+}
 
 h1 {
     text-align: center;
