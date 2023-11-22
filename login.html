@@ -27,11 +27,11 @@
                 const isValidCredentials = checkLogin(username, password);
                 if (isValidCredentials) {
                     // Set a cookie to indicate that the user is authenticated
-                    document.cookie = 'Authenticated';
+                    document.cookie = 'isAuthenticated=true';
                     document.cookie = `accountID=${getUserId(username)}`;
                     window.close();
                 } else {
-                    alert('Invalid credentials');
+                    window.alert('Invalid credentials');
                 }
             });
         </script>
