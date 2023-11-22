@@ -65,8 +65,12 @@
             <h3>Footer</h3>
         </footer>
         <script>
-            const isAuthenticated = getCookie('isAuthenticated');
-            const ID = getCookie('accountID');
+            var isAuthenticated = getCookie('isAuthenticated');
+            var ID = getCookie('accountID');
+            function readCookies () {
+                var isAuthenticated = getCookie('isAuthenticated');
+                var ID = getCookie('accountID');
+            }
             function fun1() {
                 if (!isAuthenticated) {
                     openLogin();
@@ -85,15 +89,15 @@
 
             function handleLogin(username) {
                 alert('Logged in as ' + username);
-                // Get the login button element
-                var loginButton = document.getElementById('accountName');
+                readCookies();
+                var loginButton = document.getElementById('login');
 
                 // Update the content based on login status
-                if (isLoggedIn) {
+                if (isAuthenticated) {
                     var userName = getCookie('accountID');
                     loginButton.textContent = userName;
                 } else {
-                    loginButton.textContent = 'Login';
+                    loginButton.textContent = 'No';
                 }
             }
 
