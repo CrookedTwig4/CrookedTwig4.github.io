@@ -28,8 +28,8 @@
 
                 if (checkLogin(username, password)) {
                     document.write("yes");
-                    setCookie('isAuthenticated', 'true', (1/(24*30)))
-                    setCookie('accountID', getUserId(username), (1/(24*30)))
+                    setCookie('isAuthenticated', 'true', 1);
+                    setCookie('accountID', getUserId(username), 1);
                     window.opener.handleLogin(username);
                     window.close();
                 } else {
