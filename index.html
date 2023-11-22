@@ -84,18 +84,20 @@
             function openLogin() {
                 loginWindow = window.open("login.html", "Login", "width=500,height=400,resizable=no");
                 loginWindow.addEventListener('unload', function () {
-                    alert('Popup closed. Additional code can be executed here.');
+                    if(getCookie('isAuthenticated') == 'true') {
+                        handleLogin();
+                    }
                 });
             }
 
             function handleLogin(username) {
                 readCookies();
-                var name = getUserName(username)
+                var name = getUserName(username);
                 
                 alert('Logged in as ' + name);
 
-                //hideElement('login');
-                //showElement('logout');
+                hideElement('login');
+                showElement('logout');
             }
             function handleLogout() {
                 document.getElementById('login').textContent = 'Login';
@@ -114,8 +116,8 @@
                 var element = document.getElementById(id);
                 element.style.display = '';
             }
-            if (isAuthenticated) {
-                handleLogin(getCookie('accountID'));
+            if(getCookie('isAuthenticated') == 'true') {
+                handleLogin();
             } else {
                 handleLogout();
             }
