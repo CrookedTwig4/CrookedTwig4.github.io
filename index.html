@@ -75,18 +75,6 @@
                     deleteCookie('isAuthenticated');
                     deleteCookie('accountID');
                 }
-
-                // Get the login button element
-                var loginButton = document.getElementById('accountName');
-
-                // Update the content based on login status
-                if (isLoggedIn) {
-                    // Assuming you have a variable 'userName' containing the user's name
-                    var userName = getCookie('accountID');
-                    loginButton.textContent = userName;
-                } else {
-                    loginButton.textContent = 'Login';
-                }
             }
             function openLogin() {
                 var loginWindow = window.open("login.html", "Login", "width=500,height=400,resizable=no");
@@ -97,6 +85,16 @@
 
             function handleLogin(username) {
                 alert('Logged in as ' + username);
+                // Get the login button element
+                var loginButton = document.getElementById('accountName');
+
+                // Update the content based on login status
+                if (isLoggedIn) {
+                    var userName = getCookie('accountID');
+                    loginButton.textContent = userName;
+                } else {
+                    loginButton.textContent = 'Login';
+                }
             }
 
 
