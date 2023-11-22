@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="AccountLogins.js"></script>
   <title>Login</title>
 </head>
 <body>
@@ -16,31 +17,23 @@
 
     <button type="submit">Login</button>
   </form>
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', async function (event) {
+                event.preventDefault();
 
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', async function (event) {
-      event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
 
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      // Use the secret directly in your JavaScript code
-      const loginCredentials = JSON.parse(atob('${{ secrets.LOGIN_CREDENTIALS }}'));
-
-      // Check if the entered credentials match any in the JSON list
-      const isValidCredentials = loginCredentials.some(credential => credential.username === username && credential.password === password);
-
-      if (isValidCredentials) {
-        // Set a cookie to indicate that the user is authenticated
-        document.cookie = 'isAuthenticated=true';
-
-        // Redirect to the dashboard or perform other actions
-        window.close();
-      } else {
-        // Display an error message
-        alert('Invalid credentials');
-      }
-    });
-  </script>
-</body>
+                const isValidCredentials = checkLogin(username, password);
+                if (isValidCredentials) {
+                    // Set a cookie to indicate that the user is authenticated
+                    document.cookie = 'Authenticated';
+                    document.cookie = `accountID=${getUserId(username)}`;
+                    window.close();
+                } else {
+                    alert('Invalid credentials');
+                }
+            });
+        </script>
+    </body>
 </html>
