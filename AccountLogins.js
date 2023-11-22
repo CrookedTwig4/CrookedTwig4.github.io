@@ -1,4 +1,3 @@
-/*
 const logins = [
     {
         "username": "N8theGrape", 
@@ -21,9 +20,7 @@ const logins = [
         "level": "Tester",
         "id": 2
     }
-];
-*/
-const logins = process.env.LOGIN_CREDENTIALS; // Accessing a secret as an environment variable
+]; 
 
 function getLogins() {
     return logins;
@@ -38,21 +35,11 @@ function checkLogin(username, password) {
     return false;
 }
 
-function getUserId(username) {
+function getUserData(username, data) {
     for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
         if (username == logins[accountIndex].username) {
-            return logins[accountIndex].id;
+            return logins[accountIndex][data];
         }
     }
     return false;
 }
-
-function getUserName(username) {
-    for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
-        if (username == logins[accountIndex].username) {
-            return logins[accountIndex].name;
-        }
-    }
-    return false;
-}
-
