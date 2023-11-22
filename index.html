@@ -1,46 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-</head>
-<body>
-  <form id="loginForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Your Website Title</title>
+  </head>
+  <body>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <header>
+      <div id="logo">CrookedTwig4</div>
+      <nav>
+        <a href="#">thing1</a>
+        <a href="#">thing2</a>
+        <a href="#">thing3</a>
+        <a href="#">thing4</a>
+      </nav>
+      <div id="login"><a href="#" onclick="openLogin();">Login</a></div>
+    </header>
 
-    <button type="submit">Login</button>
-  </form>
+    <h1>CrookedTwig4</h1>
 
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', async function (event) {
-      event.preventDefault();
-
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      // Use the secret directly in your JavaScript code
-      const loginCredentials = JSON.parse(atob('${{ secrets.LOGIN_CREDENTIALS }}'));
-
-      // Check if the entered credentials match any in the JSON list
-      const isValidCredentials = loginCredentials.some(credential => credential.username === username && credential.password === password);
-
-      if (isValidCredentials) {
-        // Set a cookie to indicate that the user is authenticated
-        document.cookie = 'isAuthenticated=true';
-
-        // Redirect to the dashboard or perform other actions
-        window.location.href = '/dashboard.html';
-      } else {
-        // Display an error message
-        alert('Invalid credentials');
+    <!-- Your page content goes here -->
+    <script>
+      function openLogin() {
+        window.open("login.html", "Login", "width=500,height=400,resizable=no");
       }
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

@@ -1,44 +1,46 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
 </head>
 <body>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-        <button type="button" onclick="submitLogin()">Login</button>
-    </form>
+    <button type="submit">Login</button>
+  </form>
 
-    <script>
-        function submitLogin() {
-            // Get the entered username and password
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
 
-            // Send the login information to the main window
-            const jsonString = process.env.LOGIN_CREDENTIALS; // Replace with your GitHub secret variable
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-            // Parse the JSON string into a JavaScript array
-            const usernamesPasswordsArray = JSON.parse(jsonString);
+      // Use the secret directly in your JavaScript code
+      const loginCredentials = JSON.parse(atob('${{ secrets.LOGIN_CREDENTIALS }}'));
 
-            // Check if the input matches any entry in the array
-            const matchFound = usernamesPasswordsArray.some(entry => entry.username === username && entry.password === password);
+      // Check if the entered credentials match any in the JSON list
+      const isValidCredentials = loginCredentials.some(credential => credential.username === username && credential.password === password);
 
-            if (matchFound) {
-                window.opener.postMessage({ username, password }, '*');
-            } else {
-                window.alert("no.");
-            }
-        }
+      if (isValidCredentials) {
+        // Set a cookie to indicate that the user is authenticated
+        document.cookie = 'isAuthenticated=true';
 
-    </script>
+        // Redirect to the dashboard or perform other actions
+        window.close();
+      } else {
+        // Display an error message
+        alert('Invalid credentials');
+      }
+    });
+  </script>
 </body>
 </html>
