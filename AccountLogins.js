@@ -1,3 +1,4 @@
+/*
 const logins = [
     {
         "username": "N8theGrape", 
@@ -21,6 +22,9 @@ const logins = [
         "id": 2
     }
 ];
+*/
+const logins = process.env.LOGIN_CREDENTIALS; // Accessing a secret as an environment variable
+
 function getLogins() {
     return logins;
 }
