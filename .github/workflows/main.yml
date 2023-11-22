@@ -1,0 +1,22 @@
+name: Inject Login Credentials
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  inject_credentials:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Inject Login Credentials
+        run: |
+          echo "var LOGIN_CREDENTIALS = ${{ secrets.LOGIN_CREDENTIALS }}" > AccountLogins.js
+        env:
+          LOGIN_CREDENTIALS: ${{ secrets.LOGIN_CREDENTIALS }}
+
+      # Add more steps as needed for your build or deployment process
