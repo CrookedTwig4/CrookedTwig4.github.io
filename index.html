@@ -91,11 +91,9 @@
                 alert('Logged in as ' + username);
                 readCookies();
                 var loginButton = document.getElementById('login');
-
                 // Update the content based on login status
-                if (isAuthenticated) {
-                    var userName = getCookie('accountID');
-                    loginButton.textContent = userName;
+                if (getCookie('isAuthenticated') == 'true') {
+                    loginButton.textContent = username;
                 } else {
                     loginButton.textContent = 'No';
                 }
