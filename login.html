@@ -27,6 +27,7 @@
 
                 if (checkLogin(username, password)) {
                     window.alert("Valid credentials");
+                    window.alert('0');
                     setCookie('isAuthenticated', 'true', 1);
                     window.alert('1');
                     setCookie('accountID', getUserId(username), 1);
