@@ -18,6 +18,7 @@
                     <a href="#">Contact</a>
                 </nav>
             <div id="login" onclick="fun1();">Login</div>
+            <div id="logout" onclick="fun2();">Logout</div>
         </header>
         <h1>Welcome to CrookedTwig4</h1>
         <main>
@@ -73,12 +74,11 @@
             }
             function fun1() {
                 readCookies();
-                if (isAuthenticated) {
-                    handleLogout();
-                }
-                else {
-                    openLogin();
-                }
+                openLogin();
+            }
+            function fun2() {
+                readCookies();
+                handleLogout();
             }
             function openLogin() {
                 var loginWindow = window.open("login.html", "Login", "width=500,height=400,resizable=no");
@@ -88,22 +88,33 @@
             }
 
             function handleLogin(username) {
-                alert('Logged in as ' + username);
-                document.getElementById('login').textContent = username;
                 readCookies();
+                var name = getUserName(username)
+                alert('Logged in as ' + name);
+
+                hideElement('login');
+                showElement('logout');
             }
             function handleLogout() {
                 document.getElementById('login').textContent = 'Login';
                 deleteCookie('isAuthenticated');
                 deleteCookie('accountID');
                 readCookies();
+                hideElement('logout');
+                showElement('login');
             }
-
+            function hideElement(id) {
+                var element = document.getElementById(id);
+                element.style.display = 'none';
+            }
+            function showElement(id) {
+                var element = document.getElementById(id);
+                element.style.display = '';
+            }
             if (isAuthenticated) {
-                document.write(getCookie('isAuthenticated'));
-            }
-            if (ID) {
-                document.write(getCookie('accountID'));
+                handleLogin(getCookie('accountID'));
+            } else {
+                handleLogout();
             }
         </script>
     </body>

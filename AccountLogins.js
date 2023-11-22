@@ -42,3 +42,13 @@ function getUserId(username) {
     }
     return false;
 }
+
+function getUserName(username) {
+    for (var accountIndex = 0; accountIndex < logins.length; accountIndex++) {
+        if (username == logins[accountIndex].username) {
+            return logins[accountIndex].name;
+        }
+    }
+    return false;
+}
+

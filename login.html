@@ -30,6 +30,7 @@
                     document.write("yes");
                     setCookie('isAuthenticated', 'true', 1);
                     setCookie('accountID', getUserId(username), 1);
+                    setCookie('accountName', getUserName(username), 1);
                     window.opener.handleLogin(username);
                     window.close();
                 } else {
