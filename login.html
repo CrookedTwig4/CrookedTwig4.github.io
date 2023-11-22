@@ -24,14 +24,11 @@
 
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
-                document.write(username + ", " + password);
 
                 if (checkLogin(username, password)) {
-                    document.write("yes");
+                    window.alert("Valid credentials");
                     setCookie('isAuthenticated', 'true', 1);
                     setCookie('accountID', getUserId(username), 1);
-                    setCookie('accountName', getUserName(username), 1);
-                    setCookie('accountLevel', getUserData(username, 'level'), 1);
                     window.opener.handleLogin(username);
                     window.close();
                 } else {
