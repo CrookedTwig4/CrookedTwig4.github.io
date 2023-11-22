@@ -65,10 +65,10 @@
             <h3>Footer</h3>
         </footer>
         <script>
-            var isAuthenticated = getCookie('isAuthenticated');
+            var isAuthenticated = getCookie('isAuthenticated') == 'true';
             var ID = getCookie('accountID');
             function readCookies () {
-                var isAuthenticated = getCookie('isAuthenticated');
+                var isAuthenticated = getCookie('isAuthenticated') == 'true';
                 var ID = getCookie('accountID');
             }
             function fun1() {
