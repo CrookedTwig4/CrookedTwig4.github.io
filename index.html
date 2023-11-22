@@ -72,13 +72,12 @@
                 var ID = getCookie('accountID');
             }
             function fun1() {
-                if (!isAuthenticated) {
-                    openLogin();
+                readCookies();
+                if (isAuthenticated) {
+                    handleLogout();
                 }
                 else {
-                    deleteCookie('isAuthenticated');
-                    deleteCookie('accountID');
-                    handleLogout();
+                    openLogin();
                 }
             }
             function openLogin() {
@@ -95,14 +94,16 @@
             }
             function handleLogout() {
                 document.getElementById('login').textContent = 'Login';
+                deleteCookie('isAuthenticated');
+                deleteCookie('accountID');
                 readCookies();
             }
 
             if (isAuthenticated) {
-                document.write("isAuthenticated=true");
+                document.write(getCookie('isAuthenticated'));
             }
             if (ID) {
-                document.write("accountID=");
+                document.write(getCookie('accountID'));
             }
         </script>
     </body>
